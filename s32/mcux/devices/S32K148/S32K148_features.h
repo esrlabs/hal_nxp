@@ -20,13 +20,13 @@
 /* @brief LPUART availability on the SoC. */
 #define FSL_FEATURE_SOC_LPUART_COUNT (3)
 /* @brief LPI2C availability on the SoC. */
-#define FSL_FEATURE_SOC_LPI2C_COUNT (1)
+#define FSL_FEATURE_SOC_LPI2C_COUNT (2)
 /* @brief LPSPI availability on the SoC. */
 #define FSL_FEATURE_SOC_LPSPI_COUNT (3)
 /* @brief LMEM availability on the SoC. */
 #define FSL_FEATURE_SOC_LMEM_COUNT (1)
 /* @brief FTM availability on the SoC. */
-#define FSL_FEATURE_SOC_FTM_COUNT (6)
+#define FSL_FEATURE_SOC_FTM_COUNT (8)
 /* @brief FLEXCAN availability on the SoC. */
 #define FSL_FEATURE_SOC_FLEXCAN_COUNT (3)
 /* @brief WDOG availability on the SoC. */
@@ -37,11 +37,11 @@
 /* SYSMPU module features */
 
 /* @brief Specifies number of descriptors available. */
-#define FSL_FEATURE_SYSMPU_DESCRIPTOR_COUNT (8)
+#define FSL_FEATURE_SYSMPU_DESCRIPTOR_COUNT (16)
 /* @brief Has process identifier support. */
 #define FSL_FEATURE_SYSMPU_HAS_PROCESS_IDENTIFIER (1)
 /* @brief Total number of MPU slave. */
-#define FSL_FEATURE_SYSMPU_SLAVE_COUNT (4)
+#define FSL_FEATURE_SYSMPU_SLAVE_COUNT (5)
 /* @brief Total number of MPU master. */
 #define FSL_FEATURE_SYSMPU_MASTER_COUNT (4)
 
@@ -212,7 +212,7 @@
 #define FSL_FEATURE_FLEXCAN_HAS_MESSAGE_BUFFER_MAX_NUMBERn(x) \
     (((x) == CAN0) ? (32) : \
     (((x) == CAN1) ? (32) : \
-    (((x) == CAN2) ? (16) : (-1))))
+    (((x) == CAN2) ? (32) : (-1))))
 /* @brief Has doze mode support (register bit field MCR[DOZE]). */
 #define FSL_FEATURE_FLEXCAN_HAS_DOZE_MODE_SUPPORT (0)
 /* @brief Insatnce has doze mode support (register bit field MCR[DOZE]). */
@@ -237,17 +237,17 @@
 #define FSL_FEATURE_FLEXCAN_INSTANCE_HAS_FLEXIBLE_DATA_RATEn(x) \
     (((x) == CAN0) ? (1) : \
     (((x) == CAN1) ? (1) : \
-    (((x) == CAN2) ? (0) : (0))))
+    (((x) == CAN2) ? (1) : (0))))
 /* @brief Has memory error control (register MECR). */
 #define FSL_FEATURE_FLEXCAN_HAS_MEMORY_ERROR_CONTROL (0)
 /* @brief Has enhanced bit timing register (register EPRS, ENCBT, EDCBT and ETDC). */
 #define FSL_FEATURE_FLEXCAN_HAS_ENHANCED_BIT_TIMING_REG (0)
 /* @brief Has Pretended Networking mode support. */
-#define FSL_FEATURE_FLEXCAN_HAS_PN_MODE (0)
+#define FSL_FEATURE_FLEXCAN_HAS_PN_MODE (1)
 /* @brief Has Enhanced Rx FIFO. */
 #define FSL_FEATURE_FLEXCAN_HAS_ENHANCED_RX_FIFO (0)
 /* @brief Does not support Supervisor Mode (bitfield MCR[SUPV]. */
-#define FSL_FEATURE_FLEXCAN_HAS_NO_SUPV_SUPPORT (0)
+#define FSL_FEATURE_FLEXCAN_HAS_NO_SUPV_SUPPORT (1)
 
 /* WDOG module features */
 
