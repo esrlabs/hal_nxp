@@ -1627,10 +1627,21 @@ status_t ENET_GetRxFrameSize(enet_handle_t *handle, uint32_t *length, uint8_t ri
             {
                 isReturn = true;
                 /* The last buffer descriptor in the frame check the status of the received frame. */
-                if (0U != (curBuffDescrip->control & ENET_BUFFDESCRIPTOR_RX_ERR_MASK))
+                if (IS_ENABLED(CONFIG_ETH_NXP_ENET_IGNORE_RX_CRC_PHY_ERROR))
                 {
-                    result = kStatus_ENET_RxFrameError;
-                    break;
+                    if (0U != (curBuffDescrip->control & NO_CRC_ENET_BUFFDESCRIPTOR_RX_ERR_MASK))
+                    {
+                        result = kStatus_ENET_RxFrameError;
+                        break;
+                    }
+                }
+                else
+                {
+                    if (0U != (curBuffDescrip->control & ENET_BUFFDESCRIPTOR_RX_ERR_MASK))
+                    {
+                        result = kStatus_ENET_RxFrameError;
+                        break;
+                    }
                 }
 #ifdef ENET_ENHANCEDBUFFERDESCRIPTOR_MODE
                 if (0U != (curBuffDescrip->controlExtend1 & ENET_BUFFDESCRIPTOR_RX_EXT_ERR_MASK))
