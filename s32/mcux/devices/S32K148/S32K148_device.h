@@ -23,11 +23,11 @@ typedef struct {
   struct {                                         /* offset: 0x10, array step: 0x8 */
     __I  uint32_t EAR;                               /**< Error Address Register, slave port n, array offset: 0x10, array step: 0x8 */
     __I  uint32_t EDR;                               /**< Error Detail Register, slave port n, array offset: 0x14, array step: 0x8 */
-  } SP[4];
-       uint8_t RESERVED_1[976];
-  __IO uint32_t WORD[8][4];                        /**< Region Descriptor n, Word 0..Region Descriptor n, Word 3, array offset: 0x400, array step: index*0x10, index2*0x4 */
-       uint8_t RESERVED_2[896];
-  __IO uint32_t RGDAAC[8];                         /**< Region Descriptor Alternate Access Control n, array offset: 0x800, array step: 0x4 */
+  } SP[5];
+       uint8_t RESERVED_1[968];
+  __IO uint32_t WORD[16][4];                        /**< Region Descriptor n, Word 0..Region Descriptor n, Word 3, array offset: 0x400, array step: index*0x10, index2*0x4 */
+       uint8_t RESERVED_2[768];
+  __IO uint32_t RGDAAC[16];                         /**< Region Descriptor Alternate Access Control n, array offset: 0x800, array step: 0x4 */
 } SYSMPU_Type;
 
 /* ----------------------------------------------------------------------------
@@ -565,12 +565,16 @@ typedef struct {
 #define LPI2C0_BASE                              IP_LPI2C0_BASE
 /** Peripheral LPI2C0 base pointer */
 #define LPI2C0                                   IP_LPI2C0
+/** Peripheral LPI2C1 base address */
+#define LPI2C1_BASE                              IP_LPI2C1_BASE
+/** Peripheral LPI2C1 base pointer */
+#define LPI2C1                                   IP_LPI2C1
 /** Array initializer of LPI2C peripheral base addresses */
 #define LPI2C_BASE_ADDRS                         IP_LPI2C_BASE_ADDRS
 /** Array initializer of LPI2C peripheral base pointers */
 #define LPI2C_BASE_PTRS                          IP_LPI2C_BASE_PTRS
 /** Interrupt vectors for the LPI2C peripheral type */
-#define LPI2C_IRQS                               { LPI2C0_Master_IRQn }
+#define LPI2C_IRQS                               { LPI2C0_Master_IRQn, LPI2C1_Master_IRQn }
 
 /*!
  * @}
@@ -684,6 +688,14 @@ typedef struct {
 #define FTM5_BASE                                IP_FTM5_BASE
 /** Peripheral FTM5 base pointer */
 #define FTM5                                     IP_FTM5
+/** Peripheral FTM6 base address */
+#define FTM6_BASE                                IP_FTM6_BASE
+/** Peripheral FTM6 base pointer */
+#define FTM6                                     IP_FTM6
+/** Peripheral FTM7 base address */
+#define FTM7_BASE                                IP_FTM7_BASE
+/** Peripheral FTM7 base pointer */
+#define FTM7                                     IP_FTM7
 /** Array initializer of FTM peripheral base addresses */
 #define FTM_BASE_ADDRS                           IP_FTM_BASE_ADDRS
 /** Array initializer of FTM peripheral base pointers */
